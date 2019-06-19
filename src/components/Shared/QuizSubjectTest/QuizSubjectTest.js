@@ -28,15 +28,11 @@ export const QuizSubjectTest = ({
       borderRadius: "3px",
       textAlign: "center",
       cursor: "pointer",
-      textDecoration: "none"
+      textDecoration: "none",
+      userSelect: "none"
     }
   }
 
-  const getMixedAnswers = (correct_answer, incorrect_answers) => {
-    let answers = incorrect_answers
-    answers.push(correct_answer)
-    return shuffle(answers)  
-  }
 
   const calcDifficulty = difficulty =>{
     if(difficulty == 'hard'){
@@ -57,13 +53,11 @@ export const QuizSubjectTest = ({
   }
  
   const { category, type, difficulty,question, correct_answer, incorrect_answers} = subject
-  console.log('subject', subject)
-  const answers = getMixedAnswers(correct_answer, incorrect_answers)
-
+  const answers = shuffle([...incorrect_answers, correct_answer])
 
 
   return (
-    <div className="container-fluid">
+    <div className="quiz-subject-container-fluid">
       <StarRatingComponent 
           name="difficulty" 
           starCount={5}
