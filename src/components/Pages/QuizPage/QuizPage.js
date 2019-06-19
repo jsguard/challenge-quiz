@@ -8,7 +8,7 @@ class QuizPage extends React.Component {
   render() {
     return (
       <div>    
-          <QuizComponent questions={questions} />   
+        <QuizComponent questions={questions} />   
       </div>
     );
   }
