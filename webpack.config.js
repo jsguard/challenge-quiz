@@ -16,7 +16,7 @@ module.exports = env => {
     ],
     output: {
       path: path.resolve(__dirname, "build"),
-      publicPath:'/static/',
+      publicPath:'/',
       filename: 'index_bundle.js'
     },
     module: {
