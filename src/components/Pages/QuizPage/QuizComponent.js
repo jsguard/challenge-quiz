@@ -36,7 +36,6 @@ class QuizComponent extends React.Component {
     if(current_step < questions.length-1){
       this.setState({current_step: this.state.current_step+1, is_answered: false})
     }else{
-      console.log('current_step', current_step)
       this.setState({is_finished: true})
     }
 
@@ -72,11 +71,12 @@ class QuizComponent extends React.Component {
             </div>
           : null
         }
-        {test_step > 0 && <QuizScoreProgressBar 
-          current_step={test_step}
-          total_step={total_step}
-          score={score}
-          />
+        {test_step > 0 && 
+          <QuizScoreProgressBar 
+            current_step={test_step}
+            total_step={total_step}
+            score={score}
+            />
         }
       </div>
     );

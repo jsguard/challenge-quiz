@@ -16,8 +16,8 @@ export const QuizScoreProgressBar = ({
   return (
     <div className="quiz-score-progress-container-fluid">
       <div style={{display: 'flex', justifyContent: 'space-between'}}>
-        <p>{`Score ${current_percentage.toFixed(2)}%`}</p>
-        <p>{`Score ${max_percentage.toFixed(2)}%`}</p>
+        <p>{`Score: ${current_percentage.toFixed(2)}%`}</p>
+        <p>{`Max Score: ${max_percentage.toFixed(2)}%`}</p>
       </div>
       <Progress multi>  
         <Progress bar color="black" value={min_percentage} />
