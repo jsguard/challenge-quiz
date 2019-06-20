@@ -33,7 +33,7 @@ class QuizComponent extends React.Component {
   onMoveNext = () =>{
     const current_step = this.state.current_step
     const questions = this.props.questions
-    if(current_step < questions.length-1){
+    if(current_step < questions.length){
       this.setState({current_step: this.state.current_step+1, is_answered: false})
     }else{
       this.setState({is_finished: true})
