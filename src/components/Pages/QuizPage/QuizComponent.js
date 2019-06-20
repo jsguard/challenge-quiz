@@ -33,12 +33,13 @@ class QuizComponent extends React.Component {
   onMoveNext = () =>{
     const current_step = this.state.current_step
     const questions = this.props.questions
-    if(current_step < questions.length){
+    if(current_step < questions.length-1){
       this.setState({current_step: this.state.current_step+1, is_answered: false})
     }else{
+      console.log('current_step', current_step)
       this.setState({is_finished: true})
     }
-    
+
   }
 
   render() {
@@ -55,11 +56,12 @@ class QuizComponent extends React.Component {
           total_step={total_step} 
         />
         {`Question ${current_step+1} of ${total_step}`}
-        <QuizSubjectTest 
+        {<QuizSubjectTest 
           is_answered = {is_answered}
           subject= {subject}
           onCheckedAnswer = {onCheckedAnswer}
           />
+        }
         {(is_answered && !is_finished)
           ? <div className="quiz-answer">
             {correct_answered
