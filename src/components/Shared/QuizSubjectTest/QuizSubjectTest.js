@@ -67,6 +67,8 @@ export const QuizSubjectTest = ({
           name="difficulty" 
           starCount={5}
           value={calcDifficulty(difficulty)}
+          starColor="#7a7a7a"
+          emptyStarColor="#cbcccb"
           editing={false}
         />
       <p style={styles.category}>{decodeURIComponent(category)}</p>
