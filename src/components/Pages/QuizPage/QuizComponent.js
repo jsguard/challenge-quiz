@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import QuizSubjectTest from "../../Shared/QuizSubjectTest";
 import QuizProgressBar from "../../Shared/QuizProgressBar";
+import QuizSubjectTest from "../../Shared/QuizSubjectTest";
+import QuizScoreProgressBar from "../../Shared/QuizScoreProgressBar";
 import "./QuizPage.scss";
 
 class QuizComponent extends React.Component {
@@ -49,13 +50,18 @@ class QuizComponent extends React.Component {
 
     return (
       <div>
+        <QuizProgressBar 
+          current_step={current_step} 
+          total_step={total_step} 
+        />
         {`Question ${current_step+1} of ${total_step}`}
         <QuizSubjectTest 
+          is_answered = {is_answered}
           subject= {subject}
           onCheckedAnswer = {onCheckedAnswer}
           />
         {(is_answered && !is_finished)
-          ? <div>
+          ? <div className="quiz-answer">
             {correct_answered
               ? (<p>Correct!</p>)
               : (<p>Sorry!</p>)
@@ -64,7 +70,7 @@ class QuizComponent extends React.Component {
             </div>
           : null
         }
-        {test_step > 0 &&<QuizProgressBar 
+        {test_step > 0 && <QuizScoreProgressBar 
           current_step={test_step}
           total_step={total_step}
           score={score}

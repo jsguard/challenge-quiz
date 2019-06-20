@@ -3,26 +3,31 @@ import StarRatingComponent from 'react-star-rating-component';
 import { shuffle } from "../../../util/helpers"
 
 export const QuizSubjectTest = ({
+  is_answered,
   subject,
   onCheckedAnswer
 }) => {
 
   const styles = {
     category: {
-      fontSize: "0.7em"
+      fontSize: "1em"
     },
     question: {
       marginTop: "30px",
-      fontSize: "1em"
+      fontSize: "1.4em"
     },
     answers: {
       display: "grid",
-      gridTemplateColumns: "auto auto"
+      gridTemplateColumns: "auto auto",
+      width: "600px",
+      height: "300px",
+      marginTop: "20px"
     },
     answer: {
-      width: "150px",
-      height: "30px",
-      paddingTop: "5px",
+      width: "200px",
+      height: "50px",
+      margin: "auto",
+      paddingTop: "18px",
       background: "#e5e6e5",
       border: "1px solid black",
       borderRadius: "3px",
@@ -72,7 +77,7 @@ export const QuizSubjectTest = ({
         {answers.map((answer, index) => (
           <a key={index} 
              style={styles.answer}
-             onClick={()=>{checkAnswer(answer)}}>
+             onClick={()=>{if(!is_answered) checkAnswer(answer)}}>
             {decodeURIComponent(answer)}
           </a>
         ))}

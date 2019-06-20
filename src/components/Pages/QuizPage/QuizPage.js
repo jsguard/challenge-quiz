@@ -7,7 +7,7 @@ import "./QuizPage.scss";
 class QuizPage extends React.Component {
   render() {
     return (
-      <div>    
+      <div className="quiz-page-wrapper">    
         <QuizComponent questions={questions} />   
       </div>
     );
